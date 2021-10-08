@@ -2,7 +2,7 @@
   "name": "Gubbins sharing",
   "short-name": "Gubbins",
   "start_url": "index.html",
-  "display": "browser",
+  "display": "standalone",
   "background-color": "goldenrod",
   "theme_color": "black",
   "scope": ".",
