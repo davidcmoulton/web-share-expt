@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web share</title>
+
+  <!--  for PWA -->
+  <meta name="apple-mobile-web-app-status-bar" content="#aa7700">
+  <meta name="theme-color" content="black">
+  <link rel="manifest" href="target/manifest.json">
+</head>
+<body>
+<h1>Web share</h1>
+<p>Share specified name, description and URL with the current platform's sharing tools.</p>
+<p>In order to keep the user in control, sharing must be initiated by user action in order to work, no script-initiated sharing is allowed.</p>
+<p>Supported mainly on mobile; on desktop it works with Safari on OSX and Chrome and Edge on Windows. Needs to travel over https, or be accessed via localhost in order to be permitted to operate by the browser.</p>
+<script src="web-share.js"></script>
+
+</body>
+</html>
