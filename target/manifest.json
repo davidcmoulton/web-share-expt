@@ -21,7 +21,7 @@
 
   ],
   "share-target": {
-    "action": "/share-target/",
+    "action": "./share-target.html",
     "method": "GET",
     "params": {
       "title": "title",

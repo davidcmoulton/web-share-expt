@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Share target</title>
+</head>
+<body>
+<script>
+  (function (win) {
+    const reporter = win.document.createElement('p');
+    reporter.innerHTML = `The current URL of this page is: <b>${win.location}</b>`;
+    win.document.querySelector('body').appendChild(reporter);
+  })(window);
+</script>
+</body>
+</html>
