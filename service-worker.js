@@ -1,9 +1,15 @@
-const staticCacheName = "pwa";
+const staticCacheName = 'pwa';
 
 const handleInstall = (e) => {
   e.waitUntil(
     caches.open(staticCacheName)
-      .then((cache) => cache.addAll(["/"]))
+      .then((cache) => cache.addAll(
+        [
+          './target.html',
+          './images/icon-192.png',
+          './images/icon-512.png',
+        ]
+      ))
   );
 };
 
