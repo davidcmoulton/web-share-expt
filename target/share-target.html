@@ -2,16 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=10.0, minimum-scale=0.1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Share target</title>
 </head>
 <body>
 <h1>This is the sharing target end point</h1>
-<p>This end point is registered as the <code>share_target</code> in the </p>
+<p>
+  The shared data item should comprise the three fields <code>title</code>, <code>text</code> and <code>url</code>.
+  It may be sent by GET (default) or POST (in which case <code>enctype</code> must be <code>application/x-www-form-urlencoded</code>, so
+  watch out for gotchas decoding spaces). All these things are defined under the <code>share_target</code> field of the
+  PWA's manifest.
+</p>
+<h2>If allowed fields are present, their values appear below:</h2>
+
 <script>
   (function (win) {
-    const reporter = win.document.createElement('p');
-    reporter.innerHTML = `The current URL of this page is: <b>${win.location}</b>`;
-    win.document.querySelector('body').appendChild(reporter);
+
+    const printUrl = () => {
+      const reporter = win.document.createElement('p');
+      reporter.innerHTML = `(The current URL of this page is: <b>${win.location}</b>)`;
+      win.document.querySelector('body').appendChild(reporter);
+    };
+
+    const printFieldsFromUrl = () => {
+      // rushed, hacky nonsense but it works in a poc don't actually do this kinda way
+      const fields = win.location.search.substring(1).split('&');
+      const allowedFields = ['title', 'text', 'url'];
+      let out = '';
+      fields.forEach((field) => {
+        const components = field.split('=');
+        const name = allowedFields.includes(components[0]) ? components[0] : '';
+        if (name.length) {
+          out += `<p><b>${name}</b>: ${components[1]}</p>`;
+        }
+      });
+      const el = win.document.createElement('div');
+      el.innerHTML = out;
+      win.document.querySelector('body').appendChild(el);
+    };
+
+    printFieldsFromUrl();
+    printUrl();
   })(window);
 </script>
 </body>
