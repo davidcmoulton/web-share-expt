@@ -1,0 +1,33 @@
+{
+  "name": "Add to my list",
+  "short-name": "Add to list",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background-color": "rgb(52, 67, 74)",
+  "theme_color": "rgb(206, 72, 26)",
+  "scope": ".",
+  "description": "A minimal PWA to try out the web share target API",
+
+  "icons": [
+    {
+      "src": "images/icon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "images/icon-16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+
+  ],
+  "share_target": {
+    "action": "./share-target.html",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
