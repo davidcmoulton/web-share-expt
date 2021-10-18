@@ -14,7 +14,10 @@
   watch out for gotchas decoding spaces). All these things are defined under the <code>share_target</code> field of the
   PWA's manifest.
 </p>
-<h2>If allowed fields are present, their values appear below:</h2>
+<p>
+  If allowed fields are present, their values appear below. Note that mobile Chrome doesn't appear to provide a <code>url</code> param, instead appending the
+  value <code>url</code> to the value of the <code>text</code> field.
+</p>
 
 <script>
   (function (win) {
@@ -34,7 +37,7 @@
         const components = field.split('=');
         const name = allowedFields.includes(components[0]) ? components[0] : '';
         if (name.length) {
-          out += `<p><b>${name}</b>: ${components[1]}</p>`;
+          out += `<p><b>${name}</b>: ${decodeURIComponent(components[1])}</p>`;
         }
       });
       const el = win.document.createElement('div');
