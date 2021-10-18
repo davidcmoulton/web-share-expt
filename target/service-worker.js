@@ -8,6 +8,7 @@ const handleInstall = (e) => {
           './',
           './index.html',
           './share-target.html',
+          './share-target.js',
           './images/icon-192.png',
           './images/icon-512.png',
         ]
