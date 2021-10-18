@@ -1,4 +1,4 @@
-const staticCacheName = 'gubbins';
+const staticCacheName = 'app';
 
 const handleInstall = (e) => {
   e.waitUntil(
@@ -9,8 +9,8 @@ const handleInstall = (e) => {
           './index.html',
           './share-target.html',
           './share-target.js',
-          './images/icon-192.png',
-          './images/icon-512.png',
+          './images/icon-16x16.png',
+          './images/icon-32x32.png',
         ]
       ))
   );
