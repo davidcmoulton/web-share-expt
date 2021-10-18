@@ -19,35 +19,6 @@
   value <code>url</code> to the value of the <code>text</code> field.
 </p>
 
-<script>
-  (function (win) {
-
-    const printUrl = () => {
-      const reporter = win.document.createElement('p');
-      reporter.innerHTML = `(The current URL of this page is: <b>${win.location}</b>)`;
-      win.document.querySelector('body').appendChild(reporter);
-    };
-
-    const printFieldsFromUrl = () => {
-      // rushed, hacky nonsense but it works in a poc don't actually do this kinda way
-      const fields = win.location.search.substring(1).split('&');
-      const allowedFields = ['title', 'text', 'url'];
-      let out = '';
-      fields.forEach((field) => {
-        const components = field.split('=');
-        const name = allowedFields.includes(components[0]) ? components[0] : '';
-        if (name.length) {
-          out += `<p><b>${name}</b>: ${decodeURIComponent(components[1])}</p>`;
-        }
-      });
-      const el = win.document.createElement('div');
-      el.innerHTML = out;
-      win.document.querySelector('body').appendChild(el);
-    };
-
-    printFieldsFromUrl();
-    printUrl();
-  })(window);
-</script>
+<script src="share-target.js"></script>
 </body>
 </html>
