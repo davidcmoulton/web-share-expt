@@ -24,27 +24,31 @@
       })
   );
 
-  const getTitleFromUrl = (location) => {
-    const field = 'title';
-    const title = extractFieldsFromParams(getParams(location), field)[0][field];
-    console.log(title);
-    return title;
+  const getParamValueFromUrl = (location, paramName) => {
+    const extractedFields = extractFieldsFromParams(getParams(location), [paramName]);
+    return extractedFields.length ? extractedFields[0][paramName] : '';
   };
 
-  const showSucess = () => {
+  const showSuccess = () => {
+    const messageEl = createElement('div', '', 'message');
+
+    const textEl = createElement('p', `Added <b>${getParamValueFromUrl(win.location, 'title')}</b> to your list.`)
+    messageEl.appendChild(textEl);
+
+    const urlValue = getParamValueFromUrl(win.location, 'url');
+    if (urlValue) {
+      const urlEl = createElement('p', `(${ urlValue })`)
+      messageEl.appendChild(urlEl);
+   }
+
     const img = createElement('img', null, 'message__image');
     img.src = './images/icon-192.png';
     img.alt = '';
-
-    const text = createElement('p', `Added <b>${getTitleFromUrl(win.location)}</b> to your list.`)
-
-    const messageEl = createElement('div', '', 'message');
-    messageEl.appendChild(text);
     messageEl.appendChild(img);
+
     win.document.querySelector('body').appendChild(messageEl)
   };
 
-  getTitleFromUrl(win.location);
-  showSucess();
+  showSuccess();
 
 })(window);
