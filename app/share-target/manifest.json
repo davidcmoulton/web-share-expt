@@ -4,7 +4,7 @@
   "start_url": "index.html",
   "display": "standalone",
   "background-color": "rgb(52, 67, 74)",
-  "theme_color": "rgb(206, 72, 26)",
+  "theme_color": "366cc9",
   "scope": ".",
   "description": "A minimal PWA to try out the web share target API",
   "icons": [
