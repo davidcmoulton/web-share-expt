@@ -9,8 +9,9 @@ const handleInstall = (e) => {
           './index.html',
           './share-target.html',
           './share-target.js',
-          './images/icon-16x16.png',
-          './images/icon-32x32.png',
+          './share-target.css',
+          './images/icon-192.png',
+          './images/icon-512.png',
         ]
       ))
   );
