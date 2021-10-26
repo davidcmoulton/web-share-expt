@@ -1,0 +1,12 @@
+.message {
+  margin: 0 auto;
+  max-width: 192px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.message__image {
+  display: block;
+}
